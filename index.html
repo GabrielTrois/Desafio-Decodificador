@@ -32,6 +32,8 @@
         <script>
             const input = document.querySelector("input");
 
+            const tela = document.getElementById("tela");
+
             const button1 = document.getElementById("C");
 
             const button2 = document.getElementById("D");
@@ -44,7 +46,8 @@
 
             function criptografa() {
                 let novoTexto = input.value;
-                if (novoTexto == null || novoTexto == "") {
+
+                if (novoTexto == null || novoTexto == "" || novoTexto == "Digite seu texto") {
                     input.value = "Digite seu texto";
                     input.focus();
                     return;
@@ -70,7 +73,7 @@
 
             function descriptografa() {
                 let novoTexto = input.value;
-                if (novoTexto == null || novoTexto == "") {
+                if (novoTexto == null || novoTexto == "" || novoTexto == "Digite seu texto") {
                     input.focus();
                     return;
                 }
@@ -94,12 +97,22 @@
             }
 
             function apagaInput() {
-                input.value = "";
+                if (input.value == "Digite seu texto") {
+                    input.value = "";
+                }
             }
 
-            input.value = "Digite seu texto";
+            function escreveInput() {
+                if (input.value == "") {
+                    input.value = "Digite seu texto";
+                }
+            }
 
-            input.onclick = apagaInput;
+            escreveInput();
+
+            input.onfocus = apagaInput;
+
+            input.onblur = escreveInput;
 
             button1.onclick = criptografa;
 
