@@ -19,9 +19,9 @@
         <div id="resultado">
             <div id="texto">
                 <p id="crip"></p>
-                <img id="imagem" src="High quality products 1 1.svg" alt="" />
-                <h1 id="mensagem">Nenhuma mensagem encontrada.</h1>
-                <p id="mensagem2">
+                <img src="High quality products 1 1.svg" alt="" />
+                <h1>Nenhuma mensagem encontrada.</h1>
+                <p>
                     Digite um texto que você deseja criptografar ou
                     descriptografar.
                 </p>
@@ -30,38 +30,25 @@
 
         <script>
             const input = document.querySelector("input");
+
             const button1 = document.getElementById("C");
+
             const button2 = document.getElementById("D");
+
             const paragrafo = document.getElementById("crip");
-            const mensagem = document.getElementById("mensagem");
-            const mensagem2 = document.getElementById("mensagem2");
-            const imagem = document.getElementById("imagem");
 
             function mostraResultado(resultado) {
-                paragrafo.innerText = `${resultado}`;
-            }
-
-            function escondeMensagemEImagem() {
-                mensagem.style.display = "none";
-                mensagem2.style.display = "none";
-                imagem.style.display = "none";
+                paragrafo.innerText = `Resultado: ${resultado}`;
             }
 
             function criptografa() {
                 let novoTexto = input.value;
 
-                if (
-                    novoTexto == null ||
-                    novoTexto == "" ||
-                    novoTexto == "Digite seu texto"
-                ) {
+                if (novoTexto == null || novoTexto == "" || novoTexto == "Digite seu texto") {
                     input.value = "Digite seu texto";
                     input.focus();
-                    mostraResultado("");
                     return;
                 }
-
-                escondeMensagemEImagem();
 
                 novoTexto = novoTexto.toUpperCase();
 
@@ -83,17 +70,10 @@
 
             function descriptografa() {
                 let novoTexto = input.value;
-                if (
-                    novoTexto == null ||
-                    novoTexto == "" ||
-                    novoTexto == "Digite seu texto"
-                ) {
+                if (novoTexto == null || novoTexto == "" || novoTexto == "Digite seu texto") {
                     input.focus();
-                    mostraResultado("");
                     return;
                 }
-
-                escondeMensagemEImagem();
 
                 novoTexto = novoTexto.toUpperCase();
 
@@ -122,17 +102,17 @@
             function escreveInput() {
                 if (input.value == "") {
                     input.value = "Digite seu texto";
-                    mensagem.style.display = "block";
-                    imagem.style.display = "block";
                 }
             }
 
             escreveInput();
 
             input.onfocus = apagaInput;
+
             input.onblur = escreveInput;
 
             button1.onclick = criptografa;
+
             button2.onclick = descriptografa;
         </script>
     </body>
