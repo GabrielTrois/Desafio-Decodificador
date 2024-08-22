@@ -17,8 +17,8 @@
         <p class="info">Apenas letras minúsculas e sem acento</p>
 
         <div id="resultado">
+            <p id="crip"></p>
             <div id="texto">
-                <p id="crip"></p>
                 <img id="imagem" src="High quality products 1 1.svg" alt="" />
                 <h1 id="mensagem">Nenhuma mensagem encontrada.</h1>
                 <p id="mensagem2">
@@ -39,12 +39,25 @@
 
             function mostraResultado(resultado) {
                 paragrafo.innerText = `${resultado}`;
+
+                if (resultado == "") {
+                    mensagem.style.display = "block";
+                    mensagem2.style.display = "block";
+                    imagem.style.display = "block";
+                } else {
+                    escondeMensagemEImagem();
+                }
             }
 
             function escondeMensagemEImagem() {
                 mensagem.style.display = "none";
                 mensagem2.style.display = "none";
                 imagem.style.display = "none";
+            }
+
+            function mostraMensagemEImagem() {
+                if (resultado) mensagem.style.display = "block";
+                imagem.style.display = "block";
             }
 
             function criptografa() {
@@ -60,8 +73,6 @@
                     mostraResultado("");
                     return;
                 }
-
-                escondeMensagemEImagem();
 
                 novoTexto = novoTexto.toUpperCase();
 
@@ -93,8 +104,6 @@
                     return;
                 }
 
-                escondeMensagemEImagem();
-
                 novoTexto = novoTexto.toUpperCase();
 
                 for (let i = 0; i < novoTexto.length; i++) {
@@ -122,8 +131,6 @@
             function escreveInput() {
                 if (input.value == "") {
                     input.value = "Digite seu texto";
-                    mensagem.style.display = "block";
-                    imagem.style.display = "block";
                 }
             }
 

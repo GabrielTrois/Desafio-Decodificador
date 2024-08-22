@@ -113,7 +113,7 @@ button {
     text-align: center;
 }
 
-#resultado h1 {
+#texto h1 {
     height: 58px;
 
     font-weight: 700;
@@ -128,7 +128,7 @@ button {
     flex-grow: 0;
 }
 
-#resultado p {
+#texto p {
     height: 48px;
 
     font-weight: 400;
@@ -143,13 +143,26 @@ button {
     flex-grow: 0;
 }
 
-#resultado img {
+#texto img {
     width: 336px;
     height: 304px;
     top: 283px;
     left: 1032px;
     gap: 0px;
     opacity: 0px;
+}
+
+#crip {
+    text-align: center;
+
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 120%;
+
+    margin: 20px;
+    padding: 20px;
+
+    color: #343a40;
 }
 
 p.info {
